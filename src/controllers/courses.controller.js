@@ -1,3 +1,4 @@
+import _ from "lodash";
 import Course from "../models/course.model";
 
 const create = (req, res) => {
@@ -38,7 +39,7 @@ const update = (req, res) => {
     /* 
       if specific field is not to be found in req.body, field from data is preserved.
       If such is found then field from data is replaced by it.
-      */
+    */
     const course = _.extend(data, req.body);
     course.save((err, data) => {
       if (err) {
